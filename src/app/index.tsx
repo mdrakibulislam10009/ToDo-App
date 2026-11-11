@@ -45,7 +45,7 @@ export default function Index() {
           <TodoItem todo={item} onDelete={deleteTodo} onToggle={toggleTodo} />
         )}
         ListEmptyComponent={
-          <Text className="empty-text">Kono task nai. Ekta add koro!</Text>
+          <Text className="empty-text">Empty List</Text>
         }
       />
     </View>
