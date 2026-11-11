@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, FlatList, Text, StyleSheet } from "react-native";
+import { View, FlatList, Text } from "react-native";
 import TodoInput from "../../components/TodoInput";
 import TodoItem from "../../components/TodoItem";
 import { Todo } from "../../types/todo";
@@ -20,7 +20,7 @@ export default function Index() {
   };
 
   return (
-    <View style={styles.container}>
+    <View className="screen">
       <TodoInput onAdd={addTodo} />
 
       <FlatList
@@ -30,23 +30,9 @@ export default function Index() {
           <TodoItem todo={item} onDelete={deleteTodo} />
         )}
         ListEmptyComponent={
-          <Text style={styles.empty}>Task List Empty</Text>
+          <Text className="empty-text">Task List Empty</Text>
         }
       />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: "#f3f4f6",
-  },
-  empty: {
-    textAlign: "center",
-    color: "#888",
-    marginTop: 40,
-    fontSize: 16,
-  },
-});
