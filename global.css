@@ -67,3 +67,41 @@
   color: #ef4444;
   font-weight: bold;
 }
+/* ===== Complete toggle + counter ===== */
+.todo-item-left {
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  border-width: 2px;
+  margin-right: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-off {
+  border-color: #9ca3af;
+  background-color: #ffffff;
+}
+
+.checkbox-on {
+  border-color: #4f46e5;
+  background-color: #4f46e5;
+}
+
+.checkmark {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.counter-text {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}

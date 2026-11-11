@@ -11,6 +11,7 @@ export default function Index() {
     const newTodo: Todo = {
       id: Date.now().toString(),
       text,
+      completed: false,
     };
     setTodos((prev) => [newTodo, ...prev]);
   };
@@ -19,18 +20,32 @@ export default function Index() {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
   };
 
+  const toggleTodo = (id: string) => {
+    setTodos((prev) =>
+      prev.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
+  const remaining = todos.filter((todo) => !todo.completed).length;
+
   return (
     <View className="screen">
       <TodoInput onAdd={addTodo} />
+
+      <Text className="counter-text">
+        {remaining} task{remaining !== 1 ? "s" : ""} remaining
+      </Text>
 
       <FlatList
         data={todos}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <TodoItem todo={item} onDelete={deleteTodo} />
+          <TodoItem todo={item} onDelete={deleteTodo} onToggle={toggleTodo} />
         )}
         ListEmptyComponent={
-          <Text className="empty-text">Task List Empty</Text>
+          <Text className="empty-text">Kono task nai. Ekta add koro!</Text>
         }
       />
     </View>
